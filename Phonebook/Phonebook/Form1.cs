@@ -20,10 +20,6 @@ namespace Phonebook
             typeComboBox.DataSource = Enum.GetValues(typeof(Types));
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {    
-        }
-
         private void SaveButton(object sender, EventArgs e)
         {
             try
@@ -33,11 +29,16 @@ namespace Phonebook
                 int age = Int32.Parse(ageTextBox.Text);
                 int mobile = Int32.Parse(mobileTextBox.Text);
 
+                nameTextBox.Clear();
+                addressTextBox.Clear();
+                ageTextBox.Clear();
+                mobileTextBox.Clear();
+
                 telephoneDirect.accounts.Add(new Person(name, address, age, mobile, (Types)Enum.Parse(typeof(Types), typeComboBox.Text)));
             }
             catch (Exception)
             {
-                MessageBox.Show("Please fille the form in the correct way!!!");
+                MessageBox.Show("Please fill the form in the correct way!!!");
             }         
         }
         private void ListButton(object sender, EventArgs e)
